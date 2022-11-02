@@ -24,7 +24,7 @@
 .inputContainer button{
     border: none;
     padding: 16px;
-    background-color: var(--blue-500);
+    background-color: var(--blue-800);
     color: var(--gray-100);
     font-weight: bold;
     display: flex;
@@ -32,10 +32,15 @@
     justify-content: center;
     border-radius: 8px;
     text-align: center;
+    transition: background-color .3s;
 }
 
 .inputContainer button svg{
     margin-left: 8px;
+}
+
+.inputContainer button:hover{
+   background: var(--blue-500);
 }
 
 .contentList{
@@ -101,6 +106,16 @@ ul li{
     background-color: var(--gray-400);
     align-items: flex-start;
     justify-content: space-between;
-    gap: 8px;
-    text-align: left;
+    gap: 12px;
+}
+
+li .trashButton{
+    background-color: transparent;
+    border: none;
+    transition: color .2s;
+    font-weight: bold;
+}
+
+li .trashButton:hover{
+    color: var(--red-500);
 }
