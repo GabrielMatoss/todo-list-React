@@ -26,15 +26,18 @@ export function ListContainer() {
 
                 <ul>
                     <li>
-                        <label className="checkbox-container">
-                            <input type="checkbox" />
+                      <div className={styles.tasksContainer}>
+                        <label className={styles.checkboxContainer}>
+                            <input type="checkbox"/>
                             <span className="checkmark"></span>
                         </label>
                         <p>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
                         <button type="button" className={styles.trashButton}>
                         <Trash size={18} weight="bold" />
                         </button>
+                      </div>
                     </li>
+
                 </ul>
             </div>
         </main>

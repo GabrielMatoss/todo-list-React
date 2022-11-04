@@ -98,7 +98,7 @@ ul{
     gap: 15px;
 }
 
-ul li{
+ul li .tasksContainer{
     display: flex;
     border-radius: 8px;
     padding: 16px;
@@ -109,13 +109,42 @@ ul li{
     gap: 12px;
 }
 
-li .trashButton{
+.tasksContainer .trashButton{
     background-color: transparent;
     border: none;
     transition: color .2s;
     font-weight: bold;
 }
 
-li .trashButton:hover{
+.tasksContainer .trashButton:hover{
     color: var(--red-500);
+}
+
+.checkboxContainer input{
+    appearance: none;
+    border: 2px solid var(--purple-500);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.checkboxContainer input::before{
+    background-color: var(--purple-500);
+    content: "";
+    cursor: pointer;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.checkboxContainer input:checked::before{
+    opacity: 1;
 }
