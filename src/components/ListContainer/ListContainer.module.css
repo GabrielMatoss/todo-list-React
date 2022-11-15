@@ -13,7 +13,6 @@
 }
 
 .inputContainer input{
-    border: 1px solid var(--gray-700);
     padding: 16px;
     width: 42.6rem;
     border-radius: 8px;
@@ -118,33 +117,4 @@ ul li .tasksContainer{
 
 .tasksContainer .trashButton:hover{
     color: var(--red-500);
-}
-
-.checkboxContainer input{
-    appearance: none;
-    border: 2px solid var(--purple-500);
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
-}
-
-.checkboxContainer input::before{
-    background-color: var(--purple-500);
-    content: "";
-    cursor: pointer;
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity .2s;
-}
-
-.checkboxContainer input:checked::before{
-    opacity: 1;
 }
