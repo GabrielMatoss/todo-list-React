@@ -16,6 +16,7 @@
     padding: 16px;
     width: 42.6rem;
     border-radius: 8px;
+    border: none;
     background-color: var(--gray-500);
     color: var(--gray-200);
 }
@@ -117,4 +118,9 @@ ul li .tasksContainer{
 
 .tasksContainer .trashButton:hover{
     color: var(--red-500);
+}
+
+.checkbox-container {
+    
+    background-color: aquamarine;
 }
