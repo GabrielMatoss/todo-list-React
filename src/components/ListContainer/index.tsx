@@ -6,21 +6,19 @@ interface TaskProps{
     id: number;
     title: string;
     checked: boolean;
-  }
+}
 
 export function ListContainer() {
    const [task, setTask] = useState<TaskProps[]>([]);
    const [text, setText] = useState("");
 
    function handleAddTask(){
-    if(!task) return;
-    
     setTask([...task,{
         id: Math.random(),
         title: text,
         checked: false
     }]);
-    setText("")
+    setText("");
    }
 
    function handleToggleTask(id: number){
@@ -32,7 +30,11 @@ export function ListContainer() {
       setTask(newTasksChecked)
    }
 
+   function handleRemoveTask(id: number){
+    const removeTasksFiltered = task.filter(task => task.id !== id);
 
+    setTask(removeTasksFiltered);
+   }
    
 
     return (
@@ -72,9 +74,13 @@ export function ListContainer() {
                             checked={task.checked}
                             onClick={() => {handleToggleTask(task.id)}}
                             />
+                            
                         </label>
+                        
                         <p>{task.title}</p>
+                        
                         <button 
+                        onClick={() => {handleRemoveTask(task.id)}}
                         type="button" 
                         className={styles.trashButton}
                         >
@@ -82,7 +88,7 @@ export function ListContainer() {
                         </button>
                       </div>
                     </li>
-                    ))};
+                    ))}
                 </ul>
             </div>
         </main>

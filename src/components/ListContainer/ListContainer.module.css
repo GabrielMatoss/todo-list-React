@@ -44,13 +44,12 @@
 }
 
 .contentList{
-    max-width: 47.68rem;
+    width: 47.68rem;
     display: flex;
     flex-direction: column;
     margin-inline: 1rem;
     margin-top: 4rem;
 }
-
 
 .contentList div{
     display: flex;
@@ -98,15 +97,17 @@ ul{
     gap: 15px;
 }
 
+
+
 ul li .tasksContainer{
     display: flex;
     border-radius: 8px;
     padding: 16px;
-    max-width: 786px;
     background-color: var(--gray-400);
     align-items: flex-start;
     justify-content: space-between;
     gap: 12px;
+    text-overflow: clip;
 }
 
 .tasksContainer .trashButton{
