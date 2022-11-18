@@ -23,13 +23,13 @@ export function ListContainer() {
     setText("")
    }
 
-   function handleToggleTask(taskId: number){
-    const novasTasksCheckadas = task.map( task => task.id === taskId ? {
+   function handleToggleTask(id: number){
+    const newTasksChecked = task.map( task => task.id === id ? {
         ...task,
-        isComplete: !task.checked
+        checked: !task.checked
       }: task);
   
-      setTask(novasTasksCheckadas)
+      setTask(newTasksChecked)
    }
 
 
@@ -66,7 +66,8 @@ export function ListContainer() {
                     <li key={task.id}>
                       <div className={styles.tasksContainer}>
                         <label>
-                            <input 
+                            <input
+                            readOnly
                             type="checkbox"
                             checked={task.checked}
                             onClick={() => {handleToggleTask(task.id)}}
