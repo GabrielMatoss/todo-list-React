@@ -13,6 +13,7 @@ export function ListContainer() {
    const [text, setText] = useState("");
 
    function handleAddTask(){
+    if(!text) return;
     setTask([...task,{
         id: Math.random(),
         title: text,
@@ -74,7 +75,6 @@ export function ListContainer() {
                             checked={task.checked}
                             onClick={() => {handleToggleTask(task.id)}}
                             />
-                            
                         </label>
                         
                         <p>{task.title}</p>

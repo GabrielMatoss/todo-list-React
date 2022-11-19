@@ -89,6 +89,7 @@
     font-size: 0.875rem;
 }
 
+
 ul{
     margin-top: 1rem;
     list-style: none;
@@ -96,9 +97,6 @@ ul{
     flex-direction: column;
     gap: 15px;
 }
-
-
-
 ul li .tasksContainer{
     display: flex;
     border-radius: 8px;
@@ -110,6 +108,8 @@ ul li .tasksContainer{
     text-overflow: clip;
 }
 
+
+
 .tasksContainer .trashButton{
     background-color: transparent;
     border: none;
@@ -120,4 +120,3 @@ ul li .tasksContainer{
 .tasksContainer .trashButton:hover{
     color: var(--red-500);
 }
-
