@@ -67,16 +67,13 @@ export function ListContainer() {
                 <ul>
                     {task.map(task => (
                     <li key={task.id}>
-                      <div className={styles.tasksContainer}>
-                        <label>
+                      <div className={task.checked ? "completed" : ""}>
                             <input
                             readOnly
                             type="checkbox"
                             checked={task.checked}
                             onClick={() => {handleToggleTask(task.id)}}
                             />
-                        </label>
-                        
                         <p>{task.title}</p>
                         
                         <button 

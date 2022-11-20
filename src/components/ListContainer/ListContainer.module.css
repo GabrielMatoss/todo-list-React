@@ -51,7 +51,7 @@
     margin-top: 4rem;
 }
 
-.contentList div{
+.contentList .countSection{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -89,24 +89,6 @@
     font-size: 0.875rem;
 }
 
-
-ul{
-    margin-top: 1rem;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-ul li .tasksContainer{
-    display: flex;
-    border-radius: 8px;
-    padding: 16px;
-    background-color: var(--gray-400);
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-}
-
 .tasksContainer .trashButton{
     background-color: transparent;
     border: none;
@@ -116,4 +98,8 @@ ul li .tasksContainer{
 
 .tasksContainer .trashButton:hover{
     color: var(--red-500);
+}
+
+.completed p{
+    color: blueviolet;
 }
