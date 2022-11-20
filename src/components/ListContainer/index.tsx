@@ -84,7 +84,7 @@ export function ListContainer() {
                         type="button" 
                         className={styles.trashButton}
                         >
-                            <Trash size={18} weight="bold" />
+                        <Trash size={18} weight="bold" />
                         </button>
                       </div>
                     </li>
