@@ -67,7 +67,7 @@ export function ListContainer() {
                 <ul>
                     {task.map(task => (
                     <li key={task.id}>
-                      <div className={task.checked ? "completed" : ""}>
+                      <div className={task.checked ? "test" : " "}>
                             <input
                             readOnly
                             type="checkbox"
@@ -75,7 +75,8 @@ export function ListContainer() {
                             onClick={() => {handleToggleTask(task.id)}}
                             />
                         <p>{task.title}</p>
-                        
+                        </div> 
+
                         <button 
                         onClick={() => {handleRemoveTask(task.id)}}
                         type="button" 
@@ -83,7 +84,7 @@ export function ListContainer() {
                         >
                         <Trash size={18} weight="bold" />
                         </button>
-                      </div>
+                     
                     </li>
                     ))}
                 </ul>

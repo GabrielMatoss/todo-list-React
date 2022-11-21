@@ -99,7 +99,3 @@
 .tasksContainer .trashButton:hover{
     color: var(--red-500);
 }
-
-.completed p{
-    color: blueviolet;
-}
