@@ -1,50 +1,50 @@
-import { Trash, PlusCircle } from "phosphor-react";
+import { Trash, PlusCircle, Divide } from "phosphor-react";
 import { useState } from "react";
 import styles from "./ListContainer.module.css";
 
-interface TaskProps{
+interface TaskProps {
     id: number;
     title: string;
     checked: boolean;
 }
 
 export function ListContainer() {
-   const [task, setTask] = useState<TaskProps[]>([]);
-   const [text, setText] = useState("");
+    const [task, setTask] = useState<TaskProps[]>([]);
+    const [text, setText] = useState("");
 
-   function handleAddTask(){
-    if(!text) return;
-    setTask([...task,{
-        id: Math.random(),
-        title: text,
-        checked: false
-    }]);
-    setText("");
-   }
+    function handleAddTask() {
+        if (!text) return;
+        setTask([...task, {
+            id: Math.random(),
+            title: text,
+            checked: false
+        }]);
+        setText("");
+    }
 
-   function handleToggleTask(id: number){
-    const newTasksChecked = task.map( task => task.id === id ? {
-        ...task,
-        checked: !task.checked
-      }: task);
-  
-      setTask(newTasksChecked)
-   }
+    function handleToggleTask(id: number) {
+        const newTasksChecked = task.map(task => task.id === id ? {
+            ...task,
+            checked: !task.checked
+        } : task);
 
-   function handleRemoveTask(id: number){
-    const removeTasksFiltered = task.filter(task => task.id !== id);
+        setTask(newTasksChecked)
+    }
 
-    setTask(removeTasksFiltered);
-   }
-   
+    function handleRemoveTask(id: number) {
+        const removeTasksFiltered = task.filter(task => task.id !== id);
+
+        setTask(removeTasksFiltered);
+    }
+
 
     return (
         <main className={styles.container}>
             <header className={styles.inputContainer}>
-                <input 
-                value={text} 
-                onChange={(e) => setText(e.target.value)}
-                placeholder="Adicione uma nova tarefa" type="text"/>
+                <input
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    placeholder="Adicione uma nova tarefa" type="text" />
                 <button type="submit" onClick={handleAddTask}>
                     Criar
                     <PlusCircle size={18} weight="bold" />
@@ -66,26 +66,26 @@ export function ListContainer() {
 
                 <ul>
                     {task.map(task => (
-                    <li key={task.id}>
-                      <div className={task.checked ? "test" : " "}>
-                            <input
-                            readOnly
-                            type="checkbox"
-                            checked={task.checked}
-                            onClick={() => {handleToggleTask(task.id)}}
-                            />
-                        <p>{task.title}</p>
-                        </div> 
+                        <li key={task.id}>
+                            <div className={styles.tasksContainer}>
+                                <input
+                                    readOnly
+                                    type="checkbox"
+                                    checked={task.checked}
+                                    onClick={() => { handleToggleTask(task.id) }}
+                                />
 
-                        <button 
-                        onClick={() => {handleRemoveTask(task.id)}}
-                        type="button" 
-                        className={styles.trashButton}
-                        >
-                        <Trash size={18} weight="bold" />
-                        </button>
-                     
-                    </li>
+                                <p>{task.title}</p>
+
+                                <button
+                                    onClick={() => { handleRemoveTask(task.id) }}
+                                    type="button"
+                                    className={styles.trashButton}
+                                >
+                                    <Trash size={18} weight="bold" />
+                                </button>
+                            </div>
+                        </li>
                     ))}
                 </ul>
             </div>
