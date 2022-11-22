@@ -1,15 +1,15 @@
-.header{
-    height: 200px;
-    max-width: 1440px;
+.header {
+  height: 200px;
+  max-width: 1440px;
 
-    background: var(--gray-700);
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.25rem 0;
+  background: var(--gray-700);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 0;
 }
 
-.header img{
-    height: 3.5rem;
+.header img {
+  height: 3.5rem;
 }
