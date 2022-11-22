@@ -37,6 +37,7 @@ export function ListContainer() {
         setTask(removeTasksFiltered);
     }
 
+    const tasksChecked = task.filter(task => task.checked === true);
 
     return (
         <main className={styles.container}>
@@ -55,12 +56,12 @@ export function ListContainer() {
                 <div className={styles.countSection}>
                     <section>
                         <span>Tarefas criadas</span>
-                        <div>5</div>
+                        <div>{task.length}</div>
                     </section>
 
                     <section>
                         <span>Concluídas</span>
-                        <div>2 de 5</div>
+                        <div>{`${tasksChecked.length} de ${task.length}`}</div>
                     </section>
                 </div>
 
