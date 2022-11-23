@@ -61,12 +61,14 @@ export function ListContainer() {
 
                     <section>
                         <span>Concluídas</span>
-                        <div>{`${tasksChecked.length} de ${task.length}`}</div>
+                        <div>{tasksChecked.length} de {task.length}</div>
                     </section>
                 </div>
 
 
-                <ul>
+                <ul>{
+                    
+                    }
                     {task.map(task => (
                         <li key={task.id}>
                             <div className={styles.tasksContainer}>
