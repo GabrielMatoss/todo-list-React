@@ -1,5 +1,7 @@
-import { Trash, PlusCircle, Divide } from "phosphor-react";
+
 import { useState } from "react";
+import { Trash, PlusCircle, ClipboardText } from "phosphor-react";
+
 import styles from "./ListContainer.module.css";
 
 interface TaskProps {
@@ -61,15 +63,21 @@ export function ListContainer() {
 
                     <section>
                         <span>Concluídas</span>
-                        <div>{tasksChecked.length} de {task.length}</div>
+                        {task.length === 0 ? <div>{task.length}</div>
+                            :
+                            <div>{tasksChecked.length} de {task.length}</div>}
                     </section>
                 </div>
-
-
-                <ul>{
-                    
-                    }
-                    {task.map(task => (
+                {task.length === 0 ?
+                    <ul className={task.length === 0 ? styles.listTaskEmpty : ""}>
+                        <div>
+                            <ClipboardText size={80} />
+                            <h3>Você ainda não tem tarefas cadastradas</h3>
+                            <p>Crie tarefas e organize seus itens a fazer</p>
+                        </div>
+                    </ul>
+                    :
+                    <ul>{task.map(task => (
                         <li key={task.id}>
                             <div className={styles.tasksContainer}>
                                 <input
@@ -91,7 +99,8 @@ export function ListContainer() {
                             </div>
                         </li>
                     ))}
-                </ul>
+                    </ul>
+                }
             </div>
         </main>
     )
