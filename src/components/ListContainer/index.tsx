@@ -16,6 +16,7 @@ export function ListContainer() {
 
     function handleAddTask() {
         if (!text) return;
+
         setTask([...task, {
             id: Math.random(),
             title: text,
