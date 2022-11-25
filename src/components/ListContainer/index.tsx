@@ -1,8 +1,9 @@
 
 import { useState } from "react";
-import { Trash, PlusCircle, ClipboardText } from "phosphor-react";
+import { Trash, ClipboardText } from "phosphor-react";
 
 import styles from "./ListContainer.module.css";
+import { InputHeader } from "../InputHeader";
 
 interface TaskProps {
     id: number;
@@ -14,7 +15,7 @@ export function ListContainer() {
     const [task, setTask] = useState<TaskProps[]>([]);
     const [text, setText] = useState("");
 
-    function handleAddTask(e:any) {
+    function handleAddTask() {
         if (!text) return;
         setTask([...task, {
             id: Math.random(),
@@ -43,17 +44,7 @@ export function ListContainer() {
 
     return (
         <main className={styles.container}>
-            <header className={styles.inputContainer}>
-                <input
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                    placeholder="Adicione uma nova tarefa" type="text" />
-                <button type="submit" onClick={handleAddTask}>
-                    Criar
-                    <PlusCircle size={18} weight="bold" />
-                </button>
-            </header>
-
+          <InputHeader text={text} setText={setText} handleAddTask={handleAddTask}/>
             <div className={styles.contentList}>
                 <div className={styles.countSection}>
                     <section>
@@ -63,21 +54,22 @@ export function ListContainer() {
 
                     <section>
                         <span>Concluídas</span>
-                        {task.length === 0 ? <div>{task.length}</div>
-                            :
-                            <div>{tasksChecked.length} de {task.length}</div>}
+                        {
+                        task.length === 0 ? 
+                        <div>{task.length}</div> :
+                        <div>{tasksChecked.length} de {task.length}</div>
+                        }
                     </section>
                 </div>
                 {task.length === 0 ?
-                    <ul className={task.length === 0 ? styles.listTaskEmpty : ""}>
+                    (<ul className={task.length === 0 ? styles.listTaskEmpty : ""}>
                         <div>
                             <ClipboardText size={80} />
                             <h3>Você ainda não tem tarefas cadastradas</h3>
                             <p>Crie tarefas e organize seus itens a fazer</p>
                         </div>
-                    </ul>
-                    :
-                    <ul>{task.map(task => (
+                    </ul>):
+                    (<ul>{task.map(task => (
                         <li key={task.id}>
                             <div className={styles.tasksContainer}>
                                 <input
@@ -99,7 +91,7 @@ export function ListContainer() {
                             </div>
                         </li>
                     ))}
-                    </ul>
+                    </ul>)
                 }
             </div>
         </main>
