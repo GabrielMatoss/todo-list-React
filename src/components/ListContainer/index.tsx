@@ -14,9 +14,8 @@ export function ListContainer() {
     const [task, setTask] = useState<TaskProps[]>([]);
     const [text, setText] = useState("");
 
-    function handleAddTask() {
+    function handleAddTask(e:any) {
         if (!text) return;
-
         setTask([...task, {
             id: Math.random(),
             title: text,
