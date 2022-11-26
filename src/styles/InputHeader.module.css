@@ -36,3 +36,10 @@
   .inputContainer button:hover {
     background: var(--blue-500);
   }
+
+  @media (max-width: 425px){
+    .inputContainer button{
+      padding: 10px;
+    }
+
+  }

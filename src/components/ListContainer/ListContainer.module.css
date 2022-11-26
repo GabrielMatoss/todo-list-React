@@ -86,7 +86,11 @@ ul div p {
   font-size: 1rem;
 }
 
-.tasksContainer .trashButton {
+.tasksChecked p{
+  text-decoration: line-through;
+}
+
+.tasksContainer .trashButton, .tasksChecked .trashButton {
   background-color: transparent;
   border: 0;
   transition: color 0.2s;
@@ -95,7 +99,7 @@ ul div p {
   line-height: 0;
 }
 
-.tasksContainer .trashButton:hover {
+.tasksContainer .trashButton:hover, .tasksChecked .trashButton:hover{
   color: var(--red-500);
 }
 

@@ -68,10 +68,9 @@ export function ListContainer() {
                             <h3>Você ainda não tem tarefas cadastradas</h3>
                             <p>Crie tarefas e organize seus itens a fazer</p>
                         </div>
-                    </ul>):
-                    (<ul>{task.map(task => (
+                    </ul>):(<ul>{task.map(task => (
                         <li key={task.id}>
-                            <div className={styles.tasksContainer}>
+                            <div className={task.checked ? styles.tasksChecked : styles.tasksContainer}>
                                 <input
                                     readOnly
                                     type="checkbox"
