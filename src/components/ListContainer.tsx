@@ -1,9 +1,11 @@
 
 import { useState } from "react";
-import { Trash, ClipboardText } from "phosphor-react";
+import { InputHeader } from "./InputHeader";
+import { Trash } from "phosphor-react";
 
-import styles from "./ListContainer.module.css";
-import { InputHeader } from "../InputHeader";
+import imgClipBoard from "../assets/Clipboard.svg";
+import styles from "../styles/ListContainer.module.css";
+
 
 interface TaskProps {
     id: number;
@@ -64,7 +66,7 @@ export function ListContainer() {
                 {task.length === 0 ?
                     (<ul className={task.length === 0 ? styles.listTaskEmpty : ""}>
                         <div>
-                            <ClipboardText size={80} />
+                            <img src={imgClipBoard} alt="Lista vazia" />
                             <h3>Você ainda não tem tarefas cadastradas</h3>
                             <p>Crie tarefas e organize seus itens a fazer</p>
                         </div>

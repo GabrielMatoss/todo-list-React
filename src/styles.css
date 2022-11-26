@@ -36,3 +36,15 @@ body, button, input, textarea{
     font-size: 1rem;
     line-height: 140%;
 }
+
+@media(max-width: 475px){
+    html{
+        font-size: 85%;
+    }
+}
+
+@media(max-width: 320px){
+    html{
+        font-size: 80%;
+    }
+}

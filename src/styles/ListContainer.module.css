@@ -117,11 +117,11 @@ ul div p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--gray-200);
+  color: var(--gray-300);
 }
 
-.listTaskEmpty div svg{
-  border-radius: 2rem;
+.listTaskEmpty div img{
+  width: 4rem;
 }
 
 .listTaskEmpty div h3{
