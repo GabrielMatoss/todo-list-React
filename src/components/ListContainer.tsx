@@ -18,12 +18,16 @@ export function ListContainer() {
     const [text, setText] = useState("");
 
     function handleAddTask() {
+        event?.preventDefault();
+
         if (!text) return;
+
         setTask([...task, {
             id: Math.random(),
             title: text,
             checked: false
         }]);
+
         setText("");
     }
 
