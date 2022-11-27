@@ -1,7 +1,7 @@
 
 import { useState } from "react";
-import { InputHeader } from "./InputHeader";
-import { Trash } from "phosphor-react";
+
+import { PlusCircle, Trash } from "phosphor-react";
 
 import imgClipBoard from "../assets/Clipboard.svg";
 import styles from "../styles/ListContainer.module.css";
@@ -46,11 +46,27 @@ export function ListContainer() {
         setTask(removeTasksFiltered);
     }
 
+    function handleNewCommentChange(event: any){
+        event.target.setCustomValidity("");
+        setText(event.target.value);
+    }
+    
     const tasksChecked = task.filter(task => task.checked === true);
 
     return (
         <main className={styles.container}>
-          <InputHeader text={text} setText={setText} handleAddTask={handleAddTask}/>
+         <form onSubmit={handleAddTask} className={styles.inputContainer}>
+             <input
+             value={text}
+             placeholder="Adicione uma nova tarefa" type="text"
+             onChange={handleNewCommentChange}
+             required
+             />
+        <button type="submit">
+           Criar
+          <PlusCircle size={18} weight="bold" />
+         </button>
+    </form>
             <div className={styles.contentList}>
                 <div className={styles.countSection}>
                     <section>
