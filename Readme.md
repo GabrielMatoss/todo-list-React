@@ -20,4 +20,3 @@ Para obter um resultado proximo o que foi pedido no desafio, precisei rever e co
 * Clone o projeto para sua maquina e digite em seu terminal no repositório <code>npm install</code> para instalar todas as dependencias.
 
 * Após isso digite em seu terminal <code>npm run dev</code> para rodar o servidor local na porta 3000.
-
