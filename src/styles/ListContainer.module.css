@@ -98,59 +98,15 @@ ul {
   list-style: none;
 }
 
-ul li {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  padding: 15px;
-  border-radius: 5px;
-  background-color: var(--gray-400);
-  color: var(--gray-100);
-  margin-bottom: 1rem;
-}
-
-li div {
-  width: 100%;
+.listTaskEmpty {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  text-overflow: clip;
-  word-wrap: break-word;
-  word-break: break-all;
+  justify-content: center;
+  border-top: 1px solid var(--gray-200);
+  border-radius: 5px;
 }
 
-ul div p {
-  padding-inline: 1rem;
-  font-size: 1rem;
-}
-
-.tasksChecked p{
-  text-decoration: line-through;
-}
-
-.tasksContainer .trashButton, .tasksChecked .trashButton {
-  background-color: transparent;
-  border: 0;
-  transition: color 0.2s;
-  font-weight: bold;
-  cursor: pointer;
-  line-height: 0;
-}
-
-.tasksContainer .trashButton:hover, .tasksChecked .trashButton:hover{
-  color: var(--red-500);
-}
-
-.listTaskEmpty{
- display: flex;
- align-items: center;
- justify-content: center;
- border-top: 1px solid var(--gray-200);
- border-radius: 5px;
-}
-
-.listTaskEmpty div{
+.listTaskEmpty div {
   margin-top: 3rem;
   display: flex;
   flex-direction: column;
@@ -159,18 +115,16 @@ ul div p {
   color: var(--gray-300);
 }
 
-.listTaskEmpty div img{
+.listTaskEmpty div img {
   width: 4rem;
 }
 
-.listTaskEmpty div h3{
+.listTaskEmpty div h3 {
   margin-top: 1rem;
 }
 
-
-
-@media (max-width: 425px){
-  .inputContainer button{
+@media (max-width: 425px) {
+  .inputContainer button {
     padding: 10px;
   }
 }

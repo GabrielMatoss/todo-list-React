@@ -1,0 +1,45 @@
+ul li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 15px;
+  border-radius: 5px;
+  background-color: var(--gray-400);
+  color: var(--gray-100);
+  margin-bottom: 1rem;
+}
+
+li div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-overflow: clip;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+ul div p {
+  padding-inline: 1rem;
+  font-size: 1rem;
+}
+
+.tasksChecked p {
+  text-decoration: line-through;
+}
+
+.tasksContainer .trashButton,
+.tasksChecked .trashButton {
+  background-color: transparent;
+  border: 0;
+  transition: color 0.2s;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.tasksContainer .trashButton:hover,
+.tasksChecked .trashButton:hover {
+  color: var(--red-500);
+}

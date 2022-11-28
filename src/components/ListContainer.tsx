@@ -1,23 +1,23 @@
 
-import { useState } from "react";
-
-import { PlusCircle, Trash } from "phosphor-react";
+import { useState, FormEvent, ChangeEvent, InvalidEvent } from "react";
+import { PlusCircle} from "phosphor-react";
+import { Tasks } from "./Tasks";
 
 import imgClipBoard from "../assets/Clipboard.svg";
 import styles from "../styles/ListContainer.module.css";
 
 
-interface TaskProps {
+export interface ListContainerProps {
     id: number;
     title: string;
     checked: boolean;
 }
 
 export function ListContainer() {
-    const [task, setTask] = useState<TaskProps[]>([]);
-    const [text, setText] = useState("");
+    const [task, setTask] = useState<ListContainerProps[]>([]);
+    const [text, setText] = useState<string>("");
 
-    function handleAddTask() {
+    function handleAddTask(event: FormEvent) {
         event?.preventDefault();
 
         if (!text) return;
@@ -46,27 +46,32 @@ export function ListContainer() {
         setTask(removeTasksFiltered);
     }
 
-    function handleNewCommentChange(event: any){
+    function handleNewCommentChange(event: ChangeEvent<HTMLInputElement>) {
         event.target.setCustomValidity("");
         setText(event.target.value);
     }
-    
+
+    function handleInvalidComment(event: InvalidEvent<HTMLInputElement>) {
+        event.target.setCustomValidity("Preencha este Campo!");
+    }
+
     const tasksChecked = task.filter(task => task.checked === true);
 
     return (
         <main className={styles.container}>
-         <form onSubmit={handleAddTask} className={styles.inputContainer}>
-             <input
-             value={text}
-             placeholder="Adicione uma nova tarefa" type="text"
-             onChange={handleNewCommentChange}
-             required
-             />
-        <button type="submit">
-           Criar
-          <PlusCircle size={18} weight="bold" />
-         </button>
-    </form>
+            <form onSubmit={handleAddTask} className={styles.inputContainer}>
+                <input
+                    value={text}
+                    placeholder="Adicione uma nova tarefa" type="text"
+                    onChange={handleNewCommentChange}
+                    onInvalid={handleInvalidComment}
+                    required
+                />
+                <button type="submit">
+                    Criar
+                    <PlusCircle size={18} weight="bold" />
+                </button>
+            </form>
             <div className={styles.contentList}>
                 <div className={styles.countSection}>
                     <section>
@@ -77,9 +82,9 @@ export function ListContainer() {
                     <section>
                         <span>Concluídas</span>
                         {
-                        task.length === 0 ? 
-                        <div>{task.length}</div> :
-                        <div>{tasksChecked.length} de {task.length}</div>
+                            task.length === 0 ?
+                                <div>{task.length}</div> :
+                                <div>{tasksChecked.length} de {task.length}</div>
                         }
                     </section>
                 </div>
@@ -90,27 +95,13 @@ export function ListContainer() {
                             <h3>Você ainda não tem tarefas cadastradas</h3>
                             <p>Crie tarefas e organize seus itens a fazer</p>
                         </div>
-                    </ul>):(<ul>{task.map(task => (
-                        <li key={task.id}>
-                            <div className={task.checked ? styles.tasksChecked : styles.tasksContainer}>
-                                <input
-                                    readOnly
-                                    type="checkbox"
-                                    checked={task.checked}
-                                    onClick={() => { handleToggleTask(task.id) }}
-                                />
-
-                                <p>{task.title}</p>
-
-                                <button
-                                    onClick={() => { handleRemoveTask(task.id) }}
-                                    type="button"
-                                    className={styles.trashButton}
-                                >
-                                    <Trash size={18} weight="bold" />
-                                </button>
-                            </div>
-                        </li>
+                    </ul>) : (<ul>{task.map(task => (
+                        <Tasks 
+                        task={task} 
+                        key={task.id} 
+                        handleRemoveTask={handleRemoveTask} 
+                        handleToggleTask={handleToggleTask} 
+                        />
                     ))}
                     </ul>)
                 }
