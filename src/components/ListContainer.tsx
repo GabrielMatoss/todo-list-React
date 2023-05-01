@@ -1,5 +1,11 @@
-import { useState, FormEvent, ChangeEvent, InvalidEvent } from "react";
-import { v4 as uuidv4 } from 'uuid';
+import {
+  useState,
+  FormEvent,
+  ChangeEvent,
+  InvalidEvent,
+  useEffect,
+} from "react";
+import { v4 as uuidv4 } from "uuid";
 import { PlusCircle } from "phosphor-react";
 import { Tasks } from "./Tasks";
 
@@ -13,8 +19,19 @@ export interface ListContainerProps {
 }
 
 export function ListContainer() {
-  const [task, setTask] = useState<ListContainerProps[]>([]);
+  const [task, setTask] = useState<ListContainerProps[]>(() => {
+    const fetchTasks = localStorage.getItem("Tasks");
+    if (fetchTasks) {
+      return JSON.parse(fetchTasks);
+    } else {
+      return [];
+    }
+  });
   const [text, setText] = useState<string>("");
+
+  useEffect(() => {
+    localStorage.setItem("Tasks", JSON.stringify(task));
+  }, [task]);
 
   function handleAddTask(event: FormEvent) {
     event?.preventDefault();
