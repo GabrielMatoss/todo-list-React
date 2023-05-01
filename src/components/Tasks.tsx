@@ -5,8 +5,8 @@ import styles from "../styles/Tasks.module.css";
 
 interface TaskProps {
     task: ListContainerProps;
-    handleToggleTask: (id: number) => void;
-    handleRemoveTask: (id: number) => void;
+    handleToggleTask: (id: string) => void;
+    handleRemoveTask: (id: string) => void;
 }
 
 export function Tasks({ task, handleRemoveTask, handleToggleTask }: TaskProps) {
